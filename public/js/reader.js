@@ -301,7 +301,7 @@ var reader = {
 		
 		// Add the name of the paper ("The Observer") and the full date.
 		$('#paper-date').html(
-			'The ' + paperName + ', ' + reader.issueDateLong()
+			paperName + ', ' + reader.issueDateLong()
 		);
 		document.title = "Today's "+paperName;
 		

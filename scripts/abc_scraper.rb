@@ -12,7 +12,8 @@ Dir.mkdir file_directory unless File.directory? file_directory
 #     {:links => [], :meta => {:url => "http://www.abc.net.au/news/business/", :title => "Business"}}
 # ]
 sections = [
-    {:links => [], :meta => {:url => "http://www.abc.net.au/news/nsw/", :title => "NSW"}}
+  {:links => [], :meta => {:url => "http://www.abc.net.au/news/nsw/", :title => "NSW"}},
+  {:links => [], :meta => {:url => "http://www.abc.net.au/news/world/", :title => "World"}}
 ]
 
 sections.each do |s|

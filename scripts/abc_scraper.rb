@@ -6,14 +6,11 @@ abc = ABCNews.new
 file_directory = "#{File.dirname(__FILE__)}/../public/archive/#{Time.now.strftime('%Y-%m-%d')}"
 Dir.mkdir file_directory unless File.directory? file_directory
 
-# sections = [
-#     {:links => [], :meta => {:url => "http://www.abc.net.au/news/nsw/", :title => "NSW"}},
-#     {:links => [], :meta => {:url => "http://www.abc.net.au/news/world/", :title => "World"}},
-#     {:links => [], :meta => {:url => "http://www.abc.net.au/news/business/", :title => "Business"}}
-# ]
 sections = [
   {:links => [], :meta => {:url => "http://www.abc.net.au/news/nsw/", :title => "NSW"}},
-  {:links => [], :meta => {:url => "http://www.abc.net.au/news/world/", :title => "World"}}
+  {:links => [], :meta => {:url => "http://www.abc.net.au/news/world/", :title => "World"}},
+  {:links => [], :meta => {:url => "http://www.abc.net.au/news/business/", :title => "Business"}},
+  {:links => [], :meta => {:url => "http://www.abc.net.au/news/entertainment/", :title => "Entertainment"}}
 ]
 
 sections.each do |s|

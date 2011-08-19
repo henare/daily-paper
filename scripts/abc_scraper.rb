@@ -13,6 +13,8 @@ sections = [
   {:links => [], :meta => {:url => "http://www.abc.net.au/news/entertainment/", :title => "Entertainment"}}
 ]
 
+max_words = 0
+
 sections.each do |s|
   abc.get_headlines(s[:meta][:url]).each do |h|
     item = abc.get_item(h, s[:meta][:title])
@@ -27,11 +29,12 @@ sections.each do |s|
       :title => item['headline']
     }
     s[:links] << link
+    max_words = item['words'] if item['words'] > max_words
   end
 end
 
 contents = {
-  :meta => {:max_words => 1234, :paper_name => "ABC News"},
+  :meta => {:max_words => max_words, :paper_name => "ABC News"},
   :sections => sections
 }
 

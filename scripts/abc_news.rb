@@ -19,9 +19,11 @@ class ABCNews
 
     content.search('p').each_with_index do |v,k|
       if v.attributes['class']
-        next
+        next # Skips the topics article footer
+      elsif v.parent.attributes['class'] && v.parent.attributes['class'].value == 'statepromo'
+        next # Skips "more stories" article footer link
       elsif k == 1
-        i['lead'] = v.inner_text
+        i['lead'] = v.inner_text # The first paragraph is the leader
       else
         i['article_content'] += v.to_s
       end

@@ -22,6 +22,8 @@ class ABCNews
         next # Skips the topics article footer
       elsif v.parent.attributes['class'] && v.parent.attributes['class'].value == 'statepromo'
         next # Skips "more stories" article footer link
+      elsif v.parent.attributes['id'] && v.parent.attributes['id'].value == 'comments'
+        break # Skip comments
       elsif k == 1
         i['lead'] = v.inner_text # The first paragraph is the leader
       else

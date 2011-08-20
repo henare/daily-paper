@@ -65,8 +65,9 @@ class ABCNews
     page = agent.get(url)
 
     stories = []
-    stories << base_url + page.at("div.lead").at("a").attribute("href").value if page.at("div.lead")
-    stories << base_url + page.at("div.tall").at("a").attribute("href").value if page.at("div.tall")
+    ["div.lead", "div.tall"].each do |e|
+      stories << base_url + page.at(e).at("a").attribute("href").value if page.at(e)
+    end
 
     page.at("ul.headlines").search("a").each do |a|
       next if a.at('em') # Don't get video stories

@@ -9,6 +9,9 @@ class ABCNews
 
     content = page.at('div.article')
 
+    # If the article has no headline it's a photo gallery or video
+    return nil if content.at('h1').nil?
+
     i['section'] = section
     i['article_url'] = url
     i['headline'] = content.at('h1').inner_text.strip

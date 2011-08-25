@@ -21,6 +21,7 @@ max_words = 0
 sections.each do |s|
   abc.get_headlines(s[:meta][:url]).each do |h|
     item = abc.get_item(h, s[:meta][:title])
+    next if item.nil?
     file = File.open("#{file_directory}/#{item['article_url'].split('/')[-2]}.html", 'w')
     file.write(abc.render_article(item))
     file.close
